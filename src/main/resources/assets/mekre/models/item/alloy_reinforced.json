@@ -1,0 +1,6 @@
+{
+  "parent": "mekre:item/standard_item",
+  "textures": {
+    "layer0": "mekre:items/ReinforcedAlloy"
+  }
+}

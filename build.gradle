@@ -1,0 +1,95 @@
+defaultTasks 'fullBuild'
+
+buildscript {
+    repositories {
+        jcenter()
+        maven {
+            name = "forge"
+            url = "http://files.minecraftforge.net/maven"
+        }
+        maven {
+            name = "sonatype"
+            url = "https://oss.sonatype.org/content/repositories/snapshots/"
+        }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
+    }
+}
+
+apply plugin: 'idea'
+
+idea {
+    module {
+        // For some reason this is necessary for IDEA 2014 workspaces to recognize assets
+        inheritOutputDirs = true
+    }
+}
+
+apply plugin: 'net.minecraftforge.gradle.forge'
+
+repositories {
+    maven {
+        name 'ForgeFS'
+        url 'http://files.minecraftforge.net/maven'
+    }
+    maven {
+        name 'prog'
+        url "http://dvs1.progwml6.com/files/maven"
+    }
+    maven {
+	    name 'Bluexin'
+        url = "https://maven.bluexin.be/repository/releases/"
+    }
+    maven {
+        'Darkhax'
+        url 'http://maven.epoxide.xyz'
+    }
+}
+
+// Define properties file
+ext.configFile = file "build.properties"
+
+configFile.withReader {
+    // Load config. It shall from now be referenced as simply config or project.config
+    def prop = new Properties()
+    prop.load(it)
+    project.ext.config = new ConfigSlurper().parse prop
+}
+
+version = "${config.minecraft_version}-${config.mod_version}"
+archivesBaseName = "mek-re"
+libsDirName = "../output"
+distsDirName = "../output"
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+minecraft {
+    version = config.minecraft_version + "-" + config.forge_version
+    mappings = "${config.mappings_version}"
+    runDir = "run"
+    useDepAts = true
+}
+
+dependencies {
+    deobfCompile "mezz.jei:jei_${config.minecraft_version}:${config.jei_version}"
+    compile "be.bluexin:saomc-lib:${config.minecraft_version}-${config.saomclib_version}:deobf"
+    compile "net.darkhax.tesla:Tesla:${config.minecraft_version}-${config.tesla_version}"
+}
+
+processResources
+{
+    // copy everything else, thats not the mcmod.info
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
+}
+
+reobf {
+    jar {
+        extraLines += ["PK: kotlin be/bluexin/saomclib/shade/kotlin"]
+        extraLines += ["PK: org/jetbrains/annotations be/bluexin/saomclib/shade/annotations"]
+    }
+}
+
+idea { module { inheritOutputDirs = true } }
