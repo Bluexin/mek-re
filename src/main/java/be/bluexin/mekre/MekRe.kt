@@ -29,7 +29,7 @@ object MekRe {
 
     @Mod.EventHandler
     fun init(e: FMLInitializationEvent) {
-
+        proxy.init()
     }
 
     @Mod.EventHandler

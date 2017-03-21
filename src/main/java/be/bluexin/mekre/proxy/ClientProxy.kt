@@ -1,5 +1,6 @@
 package be.bluexin.mekre.proxy
 
+import be.bluexin.mekre.common.blocks.MBlocks
 import be.bluexin.mekre.common.items.MItems
 
 /**
@@ -13,5 +14,6 @@ internal class ClientProxy : CommonProxy() {
         super.preInit()
 
         MItems.clientInit()
+        MBlocks.clientInit()
     }
 }

@@ -1,0 +1,15 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "mekre:basic_cube"
+  },
+  "variants": {
+    "type": {
+      "osmium": {"textures": {"all": "mekre:blocks/oreOsmium"}},
+      "copper": {"textures": {"all": "mekre:blocks/oreCopper"}},
+      "tin": {"textures": {"all": "mekre:blocks/oreTin"}}
+    },
+    "inventory": [{}]
+  }
+}
+

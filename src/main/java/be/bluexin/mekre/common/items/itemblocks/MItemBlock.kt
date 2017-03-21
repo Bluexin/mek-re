@@ -1,9 +1,9 @@
-package be.bluexin.mekre.common.items
+package be.bluexin.mekre.common.items.itemblocks
 
-import be.bluexin.mekre.Refs
+import net.minecraft.block.Block
 import net.minecraft.client.resources.I18n
 import net.minecraft.entity.player.EntityPlayer
-import net.minecraft.item.Item
+import net.minecraft.item.ItemBlock
 import net.minecraft.item.ItemStack
 import net.minecraftforge.fml.relauncher.Side
 import net.minecraftforge.fml.relauncher.SideOnly
@@ -13,14 +13,11 @@ import net.minecraftforge.fml.relauncher.SideOnly
  *
  * @author Bluexin
  */
-@Suppress("UNCHECKED_CAST")
-abstract class MItem(name: String) : Item() {
+abstract class MItemBlock(block: Block) : ItemBlock(block) {
 
     init {
-        this.registryName = Refs.getResourceLocation(name)
-        this.unlocalizedName = this.registryName.toString().replace(':', '.')
-        this.creativeTab = Refs.CTAB_MEKRE
-        this.maxDamage = 0
+        this.registryName = block.registryName
+        this.unlocalizedName = block.unlocalizedName
     }
 
     override fun getMetadata(damage: Int) = damage

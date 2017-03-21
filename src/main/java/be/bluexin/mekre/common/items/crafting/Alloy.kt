@@ -22,12 +22,12 @@ class Alloy : MItem("alloy") {
         val s = super.getUnlocalizedName(stack)
         val i = stack.metadata
         return if (i < 0 || i >= AlloyVariants.values().size) s
-        else s + AlloyVariants.values()[i]
+        else "${s}_${AlloyVariants.values()[i]}"
     }
 
     @SideOnly(Side.CLIENT)
     override fun getSubItems(itemIn: Item, tab: CreativeTabs?, subItems: MutableList<ItemStack>) {
-        subItems.addAll((0..AlloyVariants.values().size - 1).map { ItemStack(this, 1, it) })
+        subItems.addAll(AlloyVariants.values().map { ItemStack(this, 1, it.ordinal) })
     }
 
 }
