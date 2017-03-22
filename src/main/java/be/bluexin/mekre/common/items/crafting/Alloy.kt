@@ -9,9 +9,7 @@ import net.minecraft.item.ItemStack
  *
  * @author Bluexin
  */
-class Alloy : MItem("alloy"), IItemVariant<AlloyVariants> {
-
-    override val variantsCount = AlloyVariants.values().size
+object Alloy : MItem("alloy"), IItemVariant<AlloyVariants> {
 
     @Suppress("FINAL_UPPER_BOUND")
     override fun <E : AlloyVariants> get(variant: E, amount: Int) = ItemStack(this, amount, variant.ordinal)

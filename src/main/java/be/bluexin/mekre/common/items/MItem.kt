@@ -39,7 +39,7 @@ abstract class MItem(name: String) : Item() {
     override fun getSubItems(itemIn: Item, tab: CreativeTabs?, subItems: MutableList<ItemStack>) {
         if (this is IItemVariant<*>) {
             @Suppress("UNCHECKED_CAST")
-            this as IItemVariant<Any> // yeah, this is to let it smart cast (can't specify `Any` with `is` because java u_u )
+            this as IItemVariant<Enum<*>> // yeah, this is to let it smart cast (can't specify `Any` with `is` because java u_u )
             subItems.addAll(this.variants.map { this[it] })
         }
     }
@@ -48,8 +48,8 @@ abstract class MItem(name: String) : Item() {
         if (this is IItemVariant<*>) {
             val i = stack.metadata
             val s = super.getUnlocalizedName(stack)
-            return if (i < 0 || i >= this.variantsCount) s
-            else "${s}_${this.variants[i]}"
+            return if (i < 0 || i >= this.maxMeta) s
+            else "${s}_${this.variantsAll[i]}"
         } else return super.getUnlocalizedName(stack)
     }
 }

@@ -27,6 +27,12 @@ item.mekre.ingot_steel.name=Steel Ingot
 
 # Blocks
 
-tile.mekre.oreBlock_tin.name=Tin Ore
 tile.mekre.oreBlock_osmium.name=Osmium Ore
 tile.mekre.oreBlock_copper.name=Copper Ore
+tile.mekre.oreBlock_tin.name=Tin Ore
+
+tile.mekre.metalBlock_osmium.name=Osmium Block
+tile.mekre.metalBlock_copper.name=Copper Block
+tile.mekre.metalBlock_tin.name=Tin Block
+tile.mekre.metalBlock_bronze.name=Bronze Block
+tile.mekre.metalBlock_steel.name=Steel Block

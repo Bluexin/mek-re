@@ -7,11 +7,15 @@ import net.minecraft.item.ItemStack
  *
  * @author Bluexin
  */
-interface IItemVariant<T : Any> {
-
-    val variantsCount: Int
+interface IItemVariant<T : Enum<*>> {
 
     operator fun <E : T> get(variant: E, amount: Int = 1): ItemStack
 
     val variants: Array<T>
+
+    val maxMeta: Int
+        get() = variantsAll.size
+
+    val variantsAll: Array<T>
+        get() = variants
 }

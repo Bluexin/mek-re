@@ -18,6 +18,7 @@ import net.minecraft.item.ItemStack
 abstract class MBlock(name: String, material: Material, hardness: Float = 0.5F, resistance: Float = 0.0F) : Block(material) {
 
     init {
+        this.setCreativeTab(Refs.CTAB_MEKRE)
         this.registryName = Refs.getResourceLocation(name)
         this.unlocalizedName = this.registryName.toString().replace(':', '.')
         this.setHardness(hardness)
@@ -32,7 +33,7 @@ abstract class MBlock(name: String, material: Material, hardness: Float = 0.5F, 
     }
 
     override fun getSubBlocks(itemIn: Item, tab: CreativeTabs, list: MutableList<ItemStack>) {
-        if (this is IBlockVariant<*>) list.addAll((0..this.variantCount - 1).map { ItemStack(itemIn, 1, it) })
+        if (this is IBlockVariant<*>) this.variants.map { ItemStack(itemIn, 1, it.ordinal) }
     }
 
     override fun damageDropped(state: IBlockState) = getMetaFromState(state)

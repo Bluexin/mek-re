@@ -1,7 +1,8 @@
 package be.bluexin.mekre.common.crafting
 
-import be.bluexin.mekre.common.blocks.MBlocks
-import be.bluexin.mekre.common.items.MItems
+import be.bluexin.mekre.common.blocks.Ore
+import be.bluexin.mekre.common.items.crafting.Ingot
+import be.bluexin.mekre.common.items.itemblocks.OreItem
 import net.minecraftforge.fml.common.registry.GameRegistry
 
 /**
@@ -17,6 +18,6 @@ object MFurnaceRecipes {
         if (initialized) throw IllegalStateException("Items already initialized.")
         initialized = true
 
-        MBlocks.ore.variants.forEach { GameRegistry.addSmelting(MItems.oreItem[it], MItems.ingot[it.ingot], it.harvestLevel / 2.0F) }
+        Ore.variants.forEach { GameRegistry.addSmelting(OreItem[it], Ingot[it.metal], it.harvestLevel / 2.0F) }
     }
 }

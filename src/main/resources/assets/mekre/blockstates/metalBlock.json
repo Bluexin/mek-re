@@ -1,0 +1,39 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "mekre:basic_cube"
+  },
+  "variants": {
+    "type": {
+      "osmium": {
+        "textures": {
+          "all": "mekre:blocks/metalblocks/blockOsmium"
+        }
+      },
+      "copper": {
+        "textures": {
+          "all": "mekre:blocks/metalblocks/blockCopper"
+        }
+      },
+      "tin": {
+        "textures": {
+          "all": "mekre:blocks/metalblocks/blockTin"
+        }
+      },
+      "bronze": {
+        "textures": {
+          "all": "mekre:blocks/metalblocks/blockBronze"
+        }
+      },
+      "steel": {
+        "textures": {
+          "all": "mekre:blocks/metalblocks/blockSteel"
+        }
+      }
+    },
+    "inventory": [
+      {}
+    ]
+  }
+}
+

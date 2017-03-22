@@ -1,9 +1,9 @@
 package be.bluexin.mekre.common.items
 
 import be.bluexin.mekre.Refs
-import be.bluexin.mekre.common.blocks.MBlocks
 import be.bluexin.mekre.common.items.crafting.Alloy
 import be.bluexin.mekre.common.items.crafting.Ingot
+import be.bluexin.mekre.common.items.itemblocks.MetalBlockItem
 import be.bluexin.mekre.common.items.itemblocks.OreItem
 import net.minecraft.client.renderer.block.model.ModelResourceLocation
 import net.minecraftforge.client.model.ModelLoader
@@ -19,23 +19,20 @@ import net.minecraftforge.fml.relauncher.SideOnly
 object MItems {
     private var initialized = false
 
-    val alloy = Alloy()
-    val ingot = Ingot()
-    val oreItem = OreItem(MBlocks.ore)
-
     fun init() {
         if (initialized) throw IllegalStateException("Items already initialized.")
         initialized = true
 
-        GameRegistry.register(alloy)
-        GameRegistry.register(ingot)
-        GameRegistry.register(oreItem)
+        GameRegistry.register(Alloy)
+        GameRegistry.register(Ingot)
+        GameRegistry.register(OreItem)
+        GameRegistry.register(MetalBlockItem)
     }
 
     @SideOnly(Side.CLIENT)
     fun clientInit() {
-        registerModel(alloy)
-        registerModel(ingot)
+        registerModel(Alloy)
+        registerModel(Ingot)
     }
 
     @SideOnly(Side.CLIENT)

@@ -10,9 +10,7 @@ import net.minecraft.item.ItemStack
  *
  * @author Bluexin
  */
-class OreItem(ore: Ore) : MItemBlock(ore), IItemVariant<OreType> {
-
-    override val variantsCount = OreType.values().size
+object OreItem : MItemBlock(Ore), IItemVariant<OreType> {
 
     @Suppress("FINAL_UPPER_BOUND")
     override fun <E : OreType> get(variant: E, amount: Int) = ItemStack(this, amount, variant.ordinal)

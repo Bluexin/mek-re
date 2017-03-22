@@ -1,6 +1,6 @@
 package be.bluexin.mekre
 
-import be.bluexin.mekre.common.items.MItems
+import be.bluexin.mekre.common.items.crafting.Alloy
 import net.minecraft.creativetab.CreativeTabs
 import net.minecraft.util.ResourceLocation
 import net.minecraftforge.fml.relauncher.Side
@@ -15,7 +15,7 @@ object Refs {
 
     val CTAB_MEKRE = object : CreativeTabs("tabMekRe") {
         @SideOnly(Side.CLIENT)
-        override fun getTabIconItem() = MItems.alloy // TODO: custom item
+        override fun getTabIconItem() = Alloy // TODO: custom item
     }
 
     fun getResourceLocation(target: String) = ResourceLocation(MekRe.MODID, target)

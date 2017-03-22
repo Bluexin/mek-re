@@ -1,8 +1,7 @@
 package be.bluexin.mekre.common.blocks
 
-import be.bluexin.mekre.Refs
 import be.bluexin.mekre.common.blocks.states.BSOre
-import be.bluexin.mekre.common.items.crafting.IngotType
+import be.bluexin.mekre.common.items.crafting.MetalType
 import net.minecraft.block.material.Material
 import net.minecraft.block.state.IBlockState
 import net.minecraft.util.IStringSerializable
@@ -12,13 +11,7 @@ import net.minecraft.util.IStringSerializable
  *
  * @author Bluexin
  */
-class Ore : MBlock("oreBlock", Material.ROCK, hardness = 3.0F, resistance = 5.0F), IBlockVariant<OreType> {
-
-    init {
-        this.setHardness(3.0F)
-        this.setResistance(5.0F)
-        this.setCreativeTab(Refs.CTAB_MEKRE)
-    }
+object Ore : MBlock("oreBlock", Material.ROCK, hardness = 3.0F, resistance = 5.0F), IBlockVariant<OreType> {
 
     override fun createBlockState() = BSOre(this)
 
@@ -30,8 +23,6 @@ class Ore : MBlock("oreBlock", Material.ROCK, hardness = 3.0F, resistance = 5.0F
 
     override fun getHarvestTool(state: IBlockState?) = "pickaxe"
 
-    override val variantCount = OreType.values().size
-
     @Suppress("FINAL_UPPER_BOUND")
     override fun <E : OreType> get(variant: E, amount: Int) = defaultState.withProperty(BSOre.typeProperty, variant)!!
 
@@ -39,10 +30,10 @@ class Ore : MBlock("oreBlock", Material.ROCK, hardness = 3.0F, resistance = 5.0F
         get() = OreType.values()
 }
 
-enum class OreType(val harvestLevel: Int, val ingot: IngotType) : IStringSerializable {
-    OSMIUM(2, IngotType.OSMIUM),
-    COPPER(1, IngotType.COPPER),
-    TIN(1, IngotType.TIN);
+enum class OreType(val harvestLevel: Int, val metal: MetalType) : IStringSerializable {
+    OSMIUM(2, MetalType.OSMIUM),
+    COPPER(1, MetalType.COPPER),
+    TIN(1, MetalType.TIN);
 
     override fun getName() = this.toString()
 

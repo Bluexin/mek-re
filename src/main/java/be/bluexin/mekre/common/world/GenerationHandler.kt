@@ -1,8 +1,7 @@
 package be.bluexin.mekre.common.world
 
-import be.bluexin.mekre.common.blocks.MBlocks
+import be.bluexin.mekre.common.blocks.Ore
 import be.bluexin.mekre.common.blocks.OreType
-import be.bluexin.mekre.common.blocks.states.BSOre
 import net.minecraft.block.state.pattern.BlockMatcher
 import net.minecraft.init.Blocks
 import net.minecraft.util.math.BlockPos
@@ -31,17 +30,17 @@ object GenerationHandler : IWorldGenerator {
         if (chunkGenerator !is ChunkProviderHell && chunkGenerator !is ChunkProviderEnd) {
             (1..osmium).forEach {
                 val pos = BlockPos(chunkX * 16 + random.nextInt(16), random.nextInt(60), chunkZ * 16 + random.nextInt(16))
-                WorldGenMinable(MBlocks.ore[OreType.OSMIUM], 8, BlockMatcher.forBlock(Blocks.STONE)).generate(world, random, pos)
+                WorldGenMinable(Ore[OreType.OSMIUM], 8, BlockMatcher.forBlock(Blocks.STONE)).generate(world, random, pos)
             }
 
             (1..copper).forEach {
                 val pos = BlockPos(chunkX * 16 + random.nextInt(16), random.nextInt(60), chunkZ * 16 + random.nextInt(16))
-                WorldGenMinable(MBlocks.ore.defaultState.withProperty(BSOre.typeProperty, OreType.COPPER), 8, BlockMatcher.forBlock(Blocks.STONE)).generate(world, random, pos)
+                WorldGenMinable(Ore[OreType.COPPER], 8, BlockMatcher.forBlock(Blocks.STONE)).generate(world, random, pos)
             }
 
             (1..tin).forEach {
                 val pos = BlockPos(chunkX * 16 + random.nextInt(16), random.nextInt(60), chunkZ * 16 + random.nextInt(16))
-                WorldGenMinable(MBlocks.ore.defaultState.withProperty(BSOre.typeProperty, OreType.TIN), 8, BlockMatcher.forBlock(Blocks.STONE)).generate(world, random, pos)
+                WorldGenMinable(Ore[OreType.TIN], 8, BlockMatcher.forBlock(Blocks.STONE)).generate(world, random, pos)
             }
 
             /*(1..salt).forEach {

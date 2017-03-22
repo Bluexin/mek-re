@@ -7,9 +7,7 @@ import net.minecraft.block.state.IBlockState
  *
  * @author Bluexin
  */
-interface IBlockVariant<T : Any> {
-
-    val variantCount: Int
+interface IBlockVariant<T : Enum<*>> {
 
     operator fun <E : T> get(variant: E, amount: Int = 0): IBlockState
 

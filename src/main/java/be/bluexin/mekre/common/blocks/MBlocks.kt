@@ -17,24 +17,23 @@ object MBlocks {
 
     private var initialized = false
 
-    val ore = Ore()
-
     fun init() {
         if (initialized) throw IllegalStateException("Items already initialized.")
         initialized = true
 
-        GameRegistry.register(ore)
+        GameRegistry.register(Ore)
+        GameRegistry.register(MetalBlock)
     }
 
     @SideOnly(Side.CLIENT)
     fun clientInit() {
-
-        registerModel(ore)
+        registerModel(Ore)
+        registerModel(MetalBlock)
     }
 
     @SideOnly(Side.CLIENT)
-    fun registerModel(block: MBlock) = if (block is IBlockVariant<*>) block.variants.forEachIndexed { i, it ->
-        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), i,
+    fun registerModel(block: MBlock) = if (block is IBlockVariant<*>) block.variants.forEach { it ->
+        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), it.ordinal,
                 ModelResourceLocation(Refs.getResourceLocation(block.registryName.resourcePath), "type=$it"))
     } else TODO()
 }

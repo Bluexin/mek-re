@@ -5,9 +5,21 @@
   },
   "variants": {
     "type": {
-      "osmium": {"textures": {"all": "mekre:blocks/oreOsmium"}},
-      "copper": {"textures": {"all": "mekre:blocks/oreCopper"}},
-      "tin": {"textures": {"all": "mekre:blocks/oreTin"}}
+      "osmium": {
+        "textures": {
+          "all": "mekre:blocks/ores/oreOsmium"
+        }
+      },
+      "copper": {
+        "textures": {
+          "all": "mekre:blocks/ores/oreCopper"
+        }
+      },
+      "tin": {
+        "textures": {
+          "all": "mekre:blocks/ores/oreTin"
+        }
+      }
     },
     "inventory": [{}]
   }
