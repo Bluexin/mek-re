@@ -1,8 +1,8 @@
 package be.bluexin.mekre.common.items.itemblocks
 
+import be.bluexin.mekre.common.MetalType
 import be.bluexin.mekre.common.blocks.MetalBlock
 import be.bluexin.mekre.common.items.IItemVariant
-import be.bluexin.mekre.common.items.crafting.MetalType
 import net.minecraft.item.ItemStack
 
 /**

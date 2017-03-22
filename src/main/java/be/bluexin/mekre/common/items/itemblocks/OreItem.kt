@@ -1,7 +1,7 @@
 package be.bluexin.mekre.common.items.itemblocks
 
+import be.bluexin.mekre.common.OreType
 import be.bluexin.mekre.common.blocks.Ore
-import be.bluexin.mekre.common.blocks.OreType
 import be.bluexin.mekre.common.items.IItemVariant
 import net.minecraft.item.ItemStack
 

@@ -1,5 +1,6 @@
 package be.bluexin.mekre.common.items.crafting
 
+import be.bluexin.mekre.common.AlloyVariants
 import be.bluexin.mekre.common.items.IItemVariant
 import be.bluexin.mekre.common.items.MItem
 import net.minecraft.item.ItemStack
@@ -16,12 +17,4 @@ object Alloy : MItem("alloy"), IItemVariant<AlloyVariants> {
 
     override val variants: Array<AlloyVariants>
         get() = AlloyVariants.values()
-}
-
-enum class AlloyVariants {
-    ENRICHED,
-    REINFORCED,
-    ATOMIC;
-
-    override fun toString() = name.toLowerCase()
 }

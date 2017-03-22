@@ -1,7 +1,7 @@
 package be.bluexin.mekre.common.crafting
 
+import be.bluexin.mekre.common.MetalType
 import be.bluexin.mekre.common.items.crafting.Ingot
-import be.bluexin.mekre.common.items.crafting.MetalType
 import be.bluexin.mekre.common.items.itemblocks.MetalBlockItem
 import net.minecraftforge.oredict.OreDictionary
 

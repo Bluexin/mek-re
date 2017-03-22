@@ -1,9 +1,9 @@
 package be.bluexin.mekre.common.blocks.states
 
+import be.bluexin.mekre.common.MetalType
+import be.bluexin.mekre.common.OreType
 import be.bluexin.mekre.common.blocks.MetalBlock
 import be.bluexin.mekre.common.blocks.Ore
-import be.bluexin.mekre.common.blocks.OreType
-import be.bluexin.mekre.common.items.crafting.MetalType
 import net.minecraft.block.properties.PropertyEnum
 import net.minecraft.block.state.BlockStateContainer
 

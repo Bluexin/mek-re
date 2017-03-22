@@ -1,7 +1,7 @@
 package be.bluexin.mekre.common.blocks
 
+import be.bluexin.mekre.common.MetalType
 import be.bluexin.mekre.common.blocks.states.BSMetalBlock
-import be.bluexin.mekre.common.items.crafting.MetalType
 import net.minecraft.block.material.Material
 import net.minecraft.block.state.IBlockState
 
