@@ -32,7 +32,7 @@ abstract class MBlock(name: String, material: Material, hardness: Float = 0.5F, 
     }
 
     override fun getSubBlocks(itemIn: Item, tab: CreativeTabs, list: MutableList<ItemStack>) {
-        if (this is IBlockVariant<*>) list.addAll((0..this.variants - 1).map { ItemStack(itemIn, 1, it) })
+        if (this is IBlockVariant<*>) list.addAll((0..this.variantCount - 1).map { ItemStack(itemIn, 1, it) })
     }
 
     override fun damageDropped(state: IBlockState) = getMetaFromState(state)

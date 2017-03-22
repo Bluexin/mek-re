@@ -40,7 +40,16 @@ abstract class MItem(name: String) : Item() {
         if (this is IItemVariant<*>) {
             @Suppress("UNCHECKED_CAST")
             this as IItemVariant<Any> // yeah, this is to let it smart cast (can't specify `Any` with `is` because java u_u )
-            subItems.addAll(this.map { this[it] })
+            subItems.addAll(this.variants.map { this[it] })
         }
+    }
+
+    override fun getUnlocalizedName(stack: ItemStack): String {
+        if (this is IItemVariant<*>) {
+            val i = stack.metadata
+            val s = super.getUnlocalizedName(stack)
+            return if (i < 0 || i >= this.variantsCount) s
+            else "${s}_${this.variants[i]}"
+        } else return super.getUnlocalizedName(stack)
     }
 }

@@ -7,9 +7,11 @@ import net.minecraft.block.state.IBlockState
  *
  * @author Bluexin
  */
-interface IBlockVariant<T> : Iterable<T> {
+interface IBlockVariant<T : Any> {
 
-    val variants: Int
+    val variantCount: Int
 
     operator fun <E : T> get(variant: E, amount: Int = 0): IBlockState
+
+    val variants: Array<T>
 }

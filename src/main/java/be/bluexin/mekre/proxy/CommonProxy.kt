@@ -14,8 +14,8 @@ import net.minecraftforge.fml.common.registry.GameRegistry
 internal open class CommonProxy {
 
     open fun preInit() {
-        MItems.init()
         MBlocks.init()
+        MItems.init()
     }
 
     open fun init() {

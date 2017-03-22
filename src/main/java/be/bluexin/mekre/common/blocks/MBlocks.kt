@@ -1,7 +1,6 @@
 package be.bluexin.mekre.common.blocks
 
 import be.bluexin.mekre.Refs
-import be.bluexin.mekre.common.items.itemblocks.OreItem
 import net.minecraft.client.renderer.block.model.ModelResourceLocation
 import net.minecraft.item.Item
 import net.minecraftforge.client.model.ModelLoader
@@ -25,7 +24,6 @@ object MBlocks {
         initialized = true
 
         GameRegistry.register(ore)
-        GameRegistry.register(OreItem(ore))
     }
 
     @SideOnly(Side.CLIENT)
@@ -35,7 +33,7 @@ object MBlocks {
     }
 
     @SideOnly(Side.CLIENT)
-    fun registerModel(block: MBlock) = if (block is IBlockVariant<*>) block.forEachIndexed { i, it ->
+    fun registerModel(block: MBlock) = if (block is IBlockVariant<*>) block.variants.forEachIndexed { i, it ->
         ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), i,
                 ModelResourceLocation(Refs.getResourceLocation(block.registryName.resourcePath), "type=$it"))
     } else TODO()

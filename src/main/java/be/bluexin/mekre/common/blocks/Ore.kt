@@ -2,6 +2,7 @@ package be.bluexin.mekre.common.blocks
 
 import be.bluexin.mekre.Refs
 import be.bluexin.mekre.common.blocks.states.BSOre
+import be.bluexin.mekre.common.items.crafting.IngotType
 import net.minecraft.block.material.Material
 import net.minecraft.block.state.IBlockState
 import net.minecraft.util.IStringSerializable
@@ -29,18 +30,19 @@ class Ore : MBlock("oreBlock", Material.ROCK, hardness = 3.0F, resistance = 5.0F
 
     override fun getHarvestTool(state: IBlockState?) = "pickaxe"
 
-    override val variants = OreType.values().size
+    override val variantCount = OreType.values().size
 
     @Suppress("FINAL_UPPER_BOUND")
     override fun <E : OreType> get(variant: E, amount: Int) = defaultState.withProperty(BSOre.typeProperty, variant)!!
 
-    override fun iterator() = OreType.values().iterator()
+    override val variants: Array<OreType>
+        get() = OreType.values()
 }
 
-enum class OreType(val harvestLevel: Int): IStringSerializable {
-    OSMIUM(2),
-    COPPER(1),
-    TIN(1);
+enum class OreType(val harvestLevel: Int, val ingot: IngotType) : IStringSerializable {
+    OSMIUM(2, IngotType.OSMIUM),
+    COPPER(1, IngotType.COPPER),
+    TIN(1, IngotType.TIN);
 
     override fun getName() = this.toString()
 

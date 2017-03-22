@@ -1,6 +1,7 @@
 {
   "parent": "mekre:item/standard_item",
   "textures": {
-    "layer0": "mekre:items/alloy_enriched"
+    "layer0": "mekre:items/ingot_glowstone"
   }
 }
+

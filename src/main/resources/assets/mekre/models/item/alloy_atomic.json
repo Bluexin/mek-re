@@ -1,6 +1,6 @@
 {
   "parent": "mekre:item/standard_item",
   "textures": {
-    "layer0": "mekre:items/AtomicAlloy"
+    "layer0": "mekre:items/alloy_atomic"
   }
 }

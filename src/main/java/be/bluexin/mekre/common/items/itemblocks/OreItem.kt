@@ -2,6 +2,7 @@ package be.bluexin.mekre.common.items.itemblocks
 
 import be.bluexin.mekre.common.blocks.Ore
 import be.bluexin.mekre.common.blocks.OreType
+import be.bluexin.mekre.common.items.IItemVariant
 import net.minecraft.item.ItemStack
 
 /**
@@ -9,16 +10,13 @@ import net.minecraft.item.ItemStack
  *
  * @author Bluexin
  */
-class OreItem(ore: Ore) : MItemBlock(ore) {
+class OreItem(ore: Ore) : MItemBlock(ore), IItemVariant<OreType> {
 
-    init {
-        hasSubtypes = true
-    }
+    override val variantsCount = OreType.values().size
 
-    override fun getUnlocalizedName(stack: ItemStack): String {
-        val s = super.getUnlocalizedName(stack)
-        val i = stack.metadata
-        return if (i < 0 || i >= OreType.values().size) s
-        else "${s}_${OreType.values()[i]}"
-    }
+    @Suppress("FINAL_UPPER_BOUND")
+    override fun <E : OreType> get(variant: E, amount: Int) = ItemStack(this, amount, variant.ordinal)
+
+    override val variants: Array<OreType>
+        get() = OreType.values()
 }

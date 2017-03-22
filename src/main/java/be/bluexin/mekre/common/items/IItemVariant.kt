@@ -7,9 +7,11 @@ import net.minecraft.item.ItemStack
  *
  * @author Bluexin
  */
-interface IItemVariant<T> : Iterable<T> {
+interface IItemVariant<T : Any> {
 
-    val variants: Int
+    val variantsCount: Int
 
     operator fun <E : T> get(variant: E, amount: Int = 1): ItemStack
+
+    val variants: Array<T>
 }

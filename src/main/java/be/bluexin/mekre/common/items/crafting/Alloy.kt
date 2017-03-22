@@ -11,19 +11,13 @@ import net.minecraft.item.ItemStack
  */
 class Alloy : MItem("alloy"), IItemVariant<AlloyVariants> {
 
-    override fun getUnlocalizedName(stack: ItemStack): String {
-        val s = super.getUnlocalizedName(stack)
-        val i = stack.metadata
-        return if (i < 0 || i >= AlloyVariants.values().size) s
-        else "${s}_${AlloyVariants.values()[i]}"
-    }
-
-    override val variants = AlloyVariants.values().size
+    override val variantsCount = AlloyVariants.values().size
 
     @Suppress("FINAL_UPPER_BOUND")
     override fun <E : AlloyVariants> get(variant: E, amount: Int) = ItemStack(this, amount, variant.ordinal)
 
-    override fun iterator() = AlloyVariants.values().iterator()
+    override val variants: Array<AlloyVariants>
+        get() = AlloyVariants.values()
 }
 
 enum class AlloyVariants {

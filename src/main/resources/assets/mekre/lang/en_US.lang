@@ -11,13 +11,18 @@ itemGroup.tabMekRe=Mek:Re
 
 item.mekre.alloy_enriched.name=Enriched Alloy
 item.mekre.alloy_enriched.desc=Used to craft basic devices.
-item.mekre.alloy_enriched.desc.adv=Enriched Alloy adv
 item.mekre.alloy_reinforced.name=Reinforced Alloy
 item.mekre.alloy_reinforced.desc=Used to craft advanced devices.
-item.mekre.alloy_reinforced.desc.adv=Reinforced Alloy adv
 item.mekre.alloy_atomic.name=Atomic Alloy
 item.mekre.alloy_atomic.desc=Used to craft elite devices.
-item.mekre.alloy_atomic.desc.adv=Atomic Alloy adv
+
+item.mekre.ingot_osmium.name=Osmium Ingot
+item.mekre.ingot_copper.name=Copper Ingot
+item.mekre.ingot_tin.name=Tin Ingot
+item.mekre.ingot_bronze.name=Bronze Ingot
+item.mekre.ingot_obsidian.name=Obsidian Ingot
+item.mekre.ingot_glowstone.name=Glowstone Ingot
+item.mekre.ingot_steel.name=Steel Ingot
 
 
 # Blocks
