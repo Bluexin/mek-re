@@ -1,22 +1,15 @@
 package be.bluexin.mekre.common.items.crafting
 
+import be.bluexin.mekre.common.items.IItemVariant
 import be.bluexin.mekre.common.items.MItem
-import net.minecraft.creativetab.CreativeTabs
-import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
-import net.minecraftforge.fml.relauncher.Side
-import net.minecraftforge.fml.relauncher.SideOnly
 
 /**
  * Part of mek_re by Bluexin, released under GNU GPLv3.
  *
  * @author Bluexin
  */
-class Alloy : MItem("alloy") {
-
-    init {
-        this.hasSubtypes = true
-    }
+class Alloy : MItem("alloy"), IItemVariant<AlloyVariants> {
 
     override fun getUnlocalizedName(stack: ItemStack): String {
         val s = super.getUnlocalizedName(stack)
@@ -25,11 +18,12 @@ class Alloy : MItem("alloy") {
         else "${s}_${AlloyVariants.values()[i]}"
     }
 
-    @SideOnly(Side.CLIENT)
-    override fun getSubItems(itemIn: Item, tab: CreativeTabs?, subItems: MutableList<ItemStack>) {
-        subItems.addAll(AlloyVariants.values().map { ItemStack(this, 1, it.ordinal) })
-    }
+    override val variants = AlloyVariants.values().size
 
+    @Suppress("FINAL_UPPER_BOUND")
+    override fun <E : AlloyVariants> get(variant: E, amount: Int) = ItemStack(this, amount, variant.ordinal)
+
+    override fun iterator() = AlloyVariants.values().iterator()
 }
 
 enum class AlloyVariants {

@@ -31,7 +31,7 @@ object GenerationHandler : IWorldGenerator {
         if (chunkGenerator !is ChunkProviderHell && chunkGenerator !is ChunkProviderEnd) {
             (1..osmium).forEach {
                 val pos = BlockPos(chunkX * 16 + random.nextInt(16), random.nextInt(60), chunkZ * 16 + random.nextInt(16))
-                WorldGenMinable(MBlocks.ore.defaultState.withProperty(BSOre.typeProperty, OreType.OSMIUM), 8, BlockMatcher.forBlock(Blocks.STONE)).generate(world, random, pos)
+                WorldGenMinable(MBlocks.ore[OreType.OSMIUM], 8, BlockMatcher.forBlock(Blocks.STONE)).generate(world, random, pos)
             }
 
             (1..copper).forEach {

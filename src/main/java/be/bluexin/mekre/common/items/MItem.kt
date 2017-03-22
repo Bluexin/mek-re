@@ -2,6 +2,7 @@ package be.bluexin.mekre.common.items
 
 import be.bluexin.mekre.Refs
 import net.minecraft.client.resources.I18n
+import net.minecraft.creativetab.CreativeTabs
 import net.minecraft.entity.player.EntityPlayer
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
@@ -13,7 +14,6 @@ import net.minecraftforge.fml.relauncher.SideOnly
  *
  * @author Bluexin
  */
-@Suppress("UNCHECKED_CAST")
 abstract class MItem(name: String) : Item() {
 
     init {
@@ -21,6 +21,8 @@ abstract class MItem(name: String) : Item() {
         this.unlocalizedName = this.registryName.toString().replace(':', '.')
         this.creativeTab = Refs.CTAB_MEKRE
         this.maxDamage = 0
+        @Suppress("LeakingThis")
+        this.hasSubtypes = this is IItemVariant<*>
     }
 
     override fun getMetadata(damage: Int) = damage
@@ -31,5 +33,14 @@ abstract class MItem(name: String) : Item() {
             tooltip.add(I18n.format("${this.getUnlocalizedName(stack)}.desc"))
         if (advanced && I18n.hasKey("${this.getUnlocalizedName(stack)}.desc.adv"))
             tooltip.add(I18n.format("${this.getUnlocalizedName(stack)}.desc.adv"))
+    }
+
+    @SideOnly(Side.CLIENT)
+    override fun getSubItems(itemIn: Item, tab: CreativeTabs?, subItems: MutableList<ItemStack>) {
+        if (this is IItemVariant<*>) {
+            @Suppress("UNCHECKED_CAST")
+            this as IItemVariant<Any> // yeah, this is to let it smart cast (can't specify `Any` with `is` because java u_u )
+            subItems.addAll(this.map { this[it] })
+        }
     }
 }

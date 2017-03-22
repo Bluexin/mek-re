@@ -30,11 +30,13 @@ object MBlocks {
 
     @SideOnly(Side.CLIENT)
     fun clientInit() {
-        var m: ModelResourceLocation
 
-        OreType.values().forEachIndexed { i, it ->
-            m = ModelResourceLocation(Refs.getResourceLocation(ore.registryName.resourcePath), "type=$it")
-            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ore), i, m)
-        }
+        registerModel(ore)
     }
+
+    @SideOnly(Side.CLIENT)
+    fun registerModel(block: MBlock) = if (block is IBlockVariant<*>) block.forEachIndexed { i, it ->
+        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), i,
+                ModelResourceLocation(Refs.getResourceLocation(block.registryName.resourcePath), "type=$it"))
+    } else TODO()
 }
