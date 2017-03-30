@@ -3,6 +3,7 @@ package be.bluexin.mekre.common.items
 import be.bluexin.mekre.Refs
 import be.bluexin.mekre.common.items.crafting.Alloy
 import be.bluexin.mekre.common.items.crafting.Ingot
+import be.bluexin.mekre.common.items.itemblocks.MachineItemsHolder
 import be.bluexin.mekre.common.items.itemblocks.MetalBlockItem
 import be.bluexin.mekre.common.items.itemblocks.OreItem
 import net.minecraft.client.renderer.block.model.ModelResourceLocation
@@ -27,6 +28,7 @@ object MItems {
         GameRegistry.register(Ingot)
         GameRegistry.register(OreItem)
         GameRegistry.register(MetalBlockItem)
+        MachineItemsHolder.items.forEach { GameRegistry.register(it) }
     }
 
     @SideOnly(Side.CLIENT)

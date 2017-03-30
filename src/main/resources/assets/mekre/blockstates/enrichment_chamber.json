@@ -1,0 +1,45 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "mekre:machine",
+    "textures": {
+      "sides": "mekre:blocks/enrichment_chamber/EnrichmentChamberRight",
+      "front": "mekre:blocks/enrichment_chamber/EnrichmentChamberFront",
+      "west": "mekre:blocks/enrichment_chamber/EnrichmentChamberRight",
+      "east": "mekre:blocks/enrichment_chamber/EnrichmentChamberLeft",
+      "south": "mekre:blocks/enrichment_chamber/EnrichmentChamberBack",
+      "up": "mekre:blocks/enrichment_chamber/EnrichmentChamberTop",
+      "down": "mekre:blocks/enrichment_chamber/EnrichmentChamberBottom"
+    }
+  },
+  "variants": {
+    "facing": {
+      "north": {},
+      "south": {
+        "y": 180
+      },
+      "east": {
+        "y": 90
+      },
+      "west": {
+        "y": -90
+      }
+    },
+    "active": {
+      "true": {
+        "textures": {
+          "front": "mekre:blocks/enrichment_chamber/EnrichmentChamberFrontOn",
+          "west": "mekre:blocks/enrichment_chamber/EnrichmentChamberRightOn",
+          "east": "mekre:blocks/enrichment_chamber/EnrichmentChamberLeftOn",
+          "south": "mekre:blocks/enrichment_chamber/EnrichmentChamberBackOn",
+          "up": "mekre:blocks/enrichment_chamber/EnrichmentChamberTopOn"
+        }
+      },
+      "false": {}
+    },
+    "inventory": [
+      {}
+    ]
+  }
+}
+

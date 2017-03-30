@@ -9,7 +9,7 @@ import net.minecraft.item.ItemStack
  */
 interface IItemVariant<T : Enum<*>> {
 
-    operator fun <E : T> get(variant: E, amount: Int = 1): ItemStack
+    operator fun get(variant: T, amount: Int = 1): ItemStack
 
     val variants: Array<T>
 

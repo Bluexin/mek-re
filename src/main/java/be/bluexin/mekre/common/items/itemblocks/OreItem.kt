@@ -3,6 +3,7 @@ package be.bluexin.mekre.common.items.itemblocks
 import be.bluexin.mekre.common.OreType
 import be.bluexin.mekre.common.blocks.Ore
 import be.bluexin.mekre.common.items.IItemVariant
+import net.minecraft.block.state.IBlockState
 import net.minecraft.item.ItemStack
 
 /**
@@ -12,9 +13,10 @@ import net.minecraft.item.ItemStack
  */
 object OreItem : MItemBlock(Ore), IItemVariant<OreType> {
 
-    @Suppress("FINAL_UPPER_BOUND")
-    override fun <E : OreType> get(variant: E, amount: Int) = ItemStack(this, amount, variant.ordinal)
+    override fun get(variant: OreType, amount: Int) = ItemStack(this, amount, variant.ordinal)
 
     override val variants: Array<OreType>
         get() = OreType.values()
+
+    override fun applyToState(stack: ItemStack, state: IBlockState) = state.withProperty(Ore.typeProperty, this.variants[stack.itemDamage])!!
 }

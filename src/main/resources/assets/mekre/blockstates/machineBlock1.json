@@ -1,0 +1,36 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "mekre:basic_cube",
+    "textures": {
+      "all": "mekre:blocks/metalblocks/blockOsmium"
+    }
+  },
+  "variants": {
+    "facing": {
+      "north": {},
+      "south": {
+        "y": 180
+      },
+      "east": {
+        "y": 90
+      },
+      "west": {
+        "y": -90
+      }
+    },
+    "type": {
+      "invalid": {
+      },
+      "chemical_crystallizer": {},
+      "seismic_vibrator": {},
+      "pressurized_reaction_chamber": {},
+      "fluidic_plenisher": {},
+      "oredictionificator": {},
+      "formulaic_assemblicator": {}
+    },
+    "inventory": [
+      {}
+    ]
+  }
+}

@@ -1,6 +1,7 @@
 package be.bluexin.mekre.common.blocks
 
 import be.bluexin.mekre.Refs
+import be.bluexin.mekre.common.blocks.states.PropertyEnumWrapper
 import net.minecraft.client.renderer.block.model.ModelResourceLocation
 import net.minecraft.item.Item
 import net.minecraftforge.client.model.ModelLoader
@@ -23,17 +24,34 @@ object MBlocks {
 
         GameRegistry.register(Ore)
         GameRegistry.register(MetalBlock)
+        MachineBlocksHolder.blocks.forEach { GameRegistry.register(it) }
     }
 
     @SideOnly(Side.CLIENT)
     fun clientInit() {
         registerModel(Ore)
         registerModel(MetalBlock)
+        MachineBlocksHolder.blocks.forEach { registerModel(it) }
     }
 
     @SideOnly(Side.CLIENT)
-    fun registerModel(block: MBlock) = if (block is IBlockVariant<*>) block.variants.forEach { it ->
-        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), it.ordinal,
-                ModelResourceLocation(Refs.getResourceLocation(block.registryName.resourcePath), "type=$it"))
+    fun registerModel(block: MBlock) = if (block is MVariantBlock<*>) {
+        block.blockState.validStates.forEach {
+            var idx: Int = 0
+            val s = it.properties.filter {
+                val prop = it.key
+                if (prop is PropertyEnumWrapper) {
+                    if (prop.isItemIdx) idx = (it.value as Enum<*>).ordinal
+                    prop.renderDepends
+                } else false
+            }.map {
+                "${it.key.getName()}=${it.value}"
+            }.joinToString(",")
+
+//            println("Registering model for ${block.registryName.resourcePath} with variant [$s].")
+
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), idx,
+                    ModelResourceLocation(Refs.getResourceLocation(block.registryName.resourcePath), s))
+        }
     } else TODO()
 }

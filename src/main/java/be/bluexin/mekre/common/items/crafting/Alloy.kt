@@ -12,8 +12,7 @@ import net.minecraft.item.ItemStack
  */
 object Alloy : MItem("alloy"), IItemVariant<AlloyVariants> {
 
-    @Suppress("FINAL_UPPER_BOUND")
-    override fun <E : AlloyVariants> get(variant: E, amount: Int) = ItemStack(this, amount, variant.ordinal)
+    override fun get(variant: AlloyVariants, amount: Int) = ItemStack(this, amount, variant.ordinal)
 
     override val variants: Array<AlloyVariants>
         get() = AlloyVariants.values()

@@ -1,0 +1,55 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "mekre:basic_cube",
+    "textures": {
+      "all": "mekre:blocks/metalblocks/blockOsmium"
+    }
+  },
+  "variants": {
+    "facing": {
+      "north": {},
+      "south": {
+        "y": 180
+      },
+      "east": {
+        "y": 90
+      },
+      "west": {
+        "y": -90
+      }
+    },
+    "type": {
+      "invalid": {},
+      "enrichment_chamber": {},
+      "osmium_compressor": {},
+      "combiner": {},
+      "crusher": {
+        "model": "mekre:machine",
+        "textures": {
+          "sides": "mekre:blocks/crusher/CrusherRight",
+          "front": "mekre:blocks/crusher/CrusherFront",
+          "west": "mekre:blocks/crusher/CrusherRight",
+          "east": "mekre:blocks/crusher/CrusherLeft",
+          "south": "mekre:blocks/crusher/CrusherBack",
+          "up": "mekre:blocks/crusher/CrusherTop",
+          "down": "mekre:blocks/crusher/CrusherBottom"
+        }
+      },
+      "metallurgic_infuser": {},
+      "energized_smelter": {},
+      "precision_sawmill": {},
+      "purification_chamber": {},
+      "rotary_condensentrator": {},
+      "chemical_oxidizer": {},
+      "chemical_infuser": {},
+      "chemical_inj_chamber": {},
+      "electrolytic_separator": {},
+      "chemical_dissolution_chamber": {},
+      "chemical_washer": {}
+    },
+    "inventory": [
+      {}
+    ]
+  }
+}
