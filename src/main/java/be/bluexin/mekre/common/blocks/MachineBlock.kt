@@ -19,6 +19,7 @@ import net.minecraftforge.fml.relauncher.ReflectionHelper
  */
 class MachineBlock(val subID: Int) : MVariantBlock<MachineType>("machineBlock$subID", Material.IRON, hardness = 3.5F, resistance = 16F) {
 // TODO: when implementing the TEs, the facing will have to be propagated
+// About TE sync: https://gist.github.com/williewillus/7945c4959b1142ece9828706b527c5a4
 
     init {
         ReflectionHelper.setPrivateValue(Block::class.java, this, this.createBlockState(), "blockState", "field_176227_L")
@@ -33,12 +34,14 @@ class MachineBlock(val subID: Int) : MVariantBlock<MachineType>("machineBlock$su
     override fun createBlockState() = BSMachine(this)
 
     override fun onBlockPlacedBy(worldIn: World, pos: BlockPos, state: IBlockState, placer: EntityLivingBase, stack: ItemStack) {
-        worldIn.setBlockState(pos, state.withProperty(BSMachine.facingProperty, placer.horizontalFacing.opposite))
+        worldIn.setBlockState(pos, state.withProperty(BSMachine.facingProperty, placer.horizontalFacing.opposite).withProperty(BSMachine.activeProperty, worldIn.rand.nextBoolean()))
     }
 
     override fun getStateFromMeta(meta: Int) = MachineBlocksHolder[subID][variants[meta % 16]]
 
     override lateinit var typeProperty: PropertyEnum<MachineType>
+
+    override fun isOpaqueCube(state: IBlockState) = state.getValue(this.typeProperty).opaque
 }
 
 object MachineBlocksHolder : IManyBlocksHolder<MachineBlock, MachineType> {

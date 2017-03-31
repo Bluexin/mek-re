@@ -7,6 +7,7 @@ import be.bluexin.mekre.common.blocks.MachineBlock
 import be.bluexin.mekre.common.blocks.MetalBlock
 import be.bluexin.mekre.common.blocks.Ore
 import net.minecraft.block.BlockHorizontal
+import net.minecraft.block.properties.PropertyBool
 import net.minecraft.block.properties.PropertyEnum
 import net.minecraft.block.state.BlockStateContainer
 import net.minecraft.util.IStringSerializable
@@ -31,10 +32,11 @@ class BSMetalBlock(metalBlock: MetalBlock) : BlockStateContainer(metalBlock, typ
     }
 }
 
-class BSMachine(machineBlock: MachineBlock) : BlockStateContainer(machineBlock, typeProperty.withFilter { it!!.ordinal >= machineBlock.subID * 16 && it.ordinal < (machineBlock.subID + 1) * 16 }, facingProperty) {
+class BSMachine(machineBlock: MachineBlock) : BlockStateContainer(machineBlock, typeProperty.withFilter { it!!.ordinal >= machineBlock.subID * 16 && it.ordinal < (machineBlock.subID + 1) * 16 }, facingProperty, activeProperty) {
     companion object {
         val typeProperty = PropertyEnumWrapper(PropertyEnum.create<MachineType>("type", MachineType::class.java)!!)
         val facingProperty = PropertyEnumWrapper(BlockHorizontal.FACING, isItemIdx = false)
+        val activeProperty = PropertyBoolWrapper(PropertyBool.create("active"))
     }
 
     init {
@@ -44,7 +46,7 @@ class BSMachine(machineBlock: MachineBlock) : BlockStateContainer(machineBlock, 
     }
 }
 
-class PropertyEnumWrapper<T>(val property: PropertyEnum<T>, val renderDepends: Boolean = true, val isItemIdx: Boolean = true) : PropertyEnum<T>(property.name, property.valueClass, property.allowedValues) where T : Enum<T>, T : IStringSerializable {
+class PropertyEnumWrapper<T>(val property: PropertyEnum<T>, override val renderDepends: Boolean = true, override val isItemIdx: Boolean = true) : PropertyEnum<T>(property.name, property.valueClass, property.allowedValues), IPropertyWrapper where T : Enum<T>, T : IStringSerializable {
     override fun getName(value: T) = property.getName(value)!!
 
     override fun parseValue(value: String?) = property.parseValue(value)!!
@@ -56,4 +58,23 @@ class PropertyEnumWrapper<T>(val property: PropertyEnum<T>, val renderDepends: B
     override fun hashCode() = property.hashCode()
 
     fun withFilter(predicate: (T?) -> Boolean) = PropertyEnumWrapper(PropertyEnum.create<T>(this.property.name, this.property.valueClass, predicate))
+}
+
+class PropertyBoolWrapper(val property: PropertyBool, override val renderDepends: Boolean = true) : PropertyBool(property.name), IPropertyWrapper {
+    override fun getName(value: Boolean) = property.getName(value)!!
+
+    override fun parseValue(value: String?) = property.parseValue(value)!!
+
+    override fun getAllowedValues(): Collection<Boolean> = property.allowedValues
+
+    override fun equals(other: Any?) = property == other
+
+    override fun hashCode() = property.hashCode()
+
+    override val isItemIdx = false
+}
+
+interface IPropertyWrapper {
+    val renderDepends: Boolean
+    val isItemIdx: Boolean
 }

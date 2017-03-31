@@ -1,9 +1,19 @@
 {
   "forge_marker": 1,
   "defaults": {
-    "model": "mekre:basic_cube",
+    "model": "mekre:machine",
     "textures": {
-      "all": "mekre:blocks/metalblocks/blockOsmium"
+      "sides0": "mekre:blocks/steelCasing",
+      "front0": "mekre:blocks/steelCasing",
+      "south0": "mekre:blocks/steelCasing",
+      "up0": "mekre:blocks/steelCasing",
+      "down0": "mekre:blocks/steelCasing",
+      "sides1": "#sides0",
+      "front1": "#front0",
+      "south1": "#south0",
+      "up1": "#up0",
+      "down1": "#down0",
+      "particle": "mekre:blocks/steelCasing"
     }
   },
   "variants": {
@@ -21,32 +31,138 @@
     },
     "type": {
       "invalid": {},
-      "enrichment_chamber": {},
-      "osmium_compressor": {},
-      "combiner": {},
-      "crusher": {
-        "model": "mekre:machine",
+      "enrichment_chamber": {
         "textures": {
-          "sides": "mekre:blocks/crusher/CrusherRight",
-          "front": "mekre:blocks/crusher/CrusherFront",
-          "west": "mekre:blocks/crusher/CrusherRight",
-          "east": "mekre:blocks/crusher/CrusherLeft",
-          "south": "mekre:blocks/crusher/CrusherBack",
-          "up": "mekre:blocks/crusher/CrusherTop",
-          "down": "mekre:blocks/crusher/CrusherBottom"
+          "sides0": "mekre:blocks/enrichment_chamber/EnrichmentChamberRight",
+          "front0": "mekre:blocks/enrichment_chamber/EnrichmentChamberFront",
+          "south0": "mekre:blocks/enrichment_chamber/EnrichmentChamberBack",
+          "up0": "mekre:blocks/enrichment_chamber/EnrichmentChamberTop",
+          "down0": "mekre:blocks/enrichment_chamber/EnrichmentChamberBottom",
+          "front1": "mekre:blocks/enrichment_chamber/EnrichmentChamberFrontOn"
         }
       },
-      "metallurgic_infuser": {},
-      "energized_smelter": {},
-      "precision_sawmill": {},
-      "purification_chamber": {},
-      "rotary_condensentrator": {},
-      "chemical_oxidizer": {},
-      "chemical_infuser": {},
-      "chemical_inj_chamber": {},
-      "electrolytic_separator": {},
+      "osmium_compressor": {
+        "textures": {
+          "sides0": "mekre:blocks/osmium_compressor/OsmiumCompressorRight",
+          "front0": "mekre:blocks/osmium_compressor/OsmiumCompressorFront",
+          "south0": "mekre:blocks/osmium_compressor/OsmiumCompressorBack",
+          "up0": "mekre:blocks/osmium_compressor/OsmiumCompressorTop",
+          "down0": "mekre:blocks/osmium_compressor/OsmiumCompressorBottom",
+          "sides1": "mekre:blocks/osmium_compressor/OsmiumCompressorRightOn",
+          "front1": "mekre:blocks/osmium_compressor/OsmiumCompressorFrontOn",
+          "south1": "mekre:blocks/osmium_compressor/OsmiumCompressorBackOn"
+        }
+      },
+      "combiner": {
+        "textures": {
+          "sides0": "mekre:blocks/combiner/CombinerRight",
+          "front0": "mekre:blocks/combiner/CombinerFront",
+          "south0": "mekre:blocks/combiner/CombinerBack",
+          "up0": "mekre:blocks/combiner/CombinerTop",
+          "down0": "mekre:blocks/combiner/CombinerBottom",
+          "front1": "mekre:blocks/combiner/CombinerFrontOn"
+        }
+      },
+      "crusher": {
+        "textures": {
+          "sides0": "mekre:blocks/crusher/CrusherRight",
+          "front0": "mekre:blocks/crusher/CrusherFront",
+          "south0": "mekre:blocks/crusher/CrusherBack",
+          "up0": "mekre:blocks/crusher/CrusherTop",
+          "down0": "mekre:blocks/crusher/CrusherBottom",
+          "sides1": "mekre:blocks/crusher/CrusherRightOn",
+          "front1": "mekre:blocks/crusher/CrusherFrontOn"
+        }
+      },
+      "metallurgic_infuser": {
+        "model": "mekre:metallurgic_infuser"
+      },
+      "energized_smelter": {
+        "textures": {
+          "sides0": "mekre:blocks/energized_smelter/EnergizedSmelterRight",
+          "front0": "mekre:blocks/energized_smelter/EnergizedSmelterFront",
+          "south0": "mekre:blocks/energized_smelter/EnergizedSmelterBack",
+          "up0": "mekre:blocks/energized_smelter/EnergizedSmelterTop",
+          "down0": "mekre:blocks/energized_smelter/EnergizedSmelterBottom",
+          "front1": "mekre:blocks/energized_smelter/EnergizedSmelterFrontOn",
+          "down1": "mekre:blocks/energized_smelter/EnergizedSmelterBottomOn"
+        }
+      },
+      "precision_sawmill": {
+        "textures": {
+          "sides0": "mekre:blocks/precision_sawmill/PrecisionSawmillRight",
+          "front0": "mekre:blocks/precision_sawmill/PrecisionSawmillFront",
+          "south0": "mekre:blocks/precision_sawmill/PrecisionSawmillBack",
+          "up0": "mekre:blocks/precision_sawmill/PrecisionSawmillTop",
+          "down0": "mekre:blocks/precision_sawmill/PrecisionSawmillBottom",
+          "sides1": "mekre:blocks/precision_sawmill/PrecisionSawmillRightOn",
+          "front1": "mekre:blocks/precision_sawmill/PrecisionSawmillFrontOn",
+          "south1": "mekre:blocks/precision_sawmill/PrecisionSawmillBackOn",
+          "up1": "mekre:blocks/precision_sawmill/PrecisionSawmillTopOn"
+        }
+      },
+      "purification_chamber": {
+        "textures": {
+          "sides0": "mekre:blocks/purification_chamber/PurificationChamberRight",
+          "front0": "mekre:blocks/purification_chamber/PurificationChamberFront",
+          "south0": "mekre:blocks/purification_chamber/PurificationChamberBack",
+          "up0": "mekre:blocks/purification_chamber/PurificationChamberTop",
+          "down0": "mekre:blocks/purification_chamber/PurificationChamberBottom",
+          "sides1": "mekre:blocks/purification_chamber/PurificationChamberRightOn",
+          "front1": "mekre:blocks/purification_chamber/PurificationChamberFrontOn",
+          "south1": "mekre:blocks/purification_chamber/PurificationChamberBackOn",
+          "up1": "mekre:blocks/purification_chamber/PurificationChamberTopOn"
+        }
+      },
+      "rotary_condensentrator": {
+        "model": "mekre:rotary_condensentrator"
+      },
+      "chemical_oxidizer": {
+        "model": "mekre:chemical_oxidizer"
+      },
+      "chemical_infuser": {
+        "model": "mekre:chemical_infuser"
+      },
+      "chemical_inj_chamber": {
+        "textures": {
+          "sides0": "mekre:blocks/chemical_injection_chamber/ChemicalInjectionChamberRight",
+          "front0": "mekre:blocks/chemical_injection_chamber/ChemicalInjectionChamberFront",
+          "south0": "mekre:blocks/chemical_injection_chamber/ChemicalInjectionChamberBack",
+          "up0": "mekre:blocks/chemical_injection_chamber/ChemicalInjectionChamberTop",
+          "down0": "mekre:blocks/chemical_injection_chamber/ChemicalInjectionChamberBottom",
+          "sides1": "mekre:blocks/chemical_injection_chamber/ChemicalInjectionChamberRightOn",
+          "front1": "mekre:blocks/chemical_injection_chamber/ChemicalInjectionChamberFrontOn",
+          "south1": "mekre:blocks/chemical_injection_chamber/ChemicalInjectionChamberBackOn",
+          "up1": "mekre:blocks/chemical_injection_chamber/ChemicalInjectionChamberTopOn"
+        }
+      },
+      "electrolytic_separator": {
+        "model": "mekre:electrolytic_separator"
+      },
       "chemical_dissolution_chamber": {},
-      "chemical_washer": {}
+      "chemical_washer": {
+        "model": "mekre:chemical_washer"
+      }
+    },
+    "active": {
+      "false": {
+        "textures": {
+          "sides": "#sides0",
+          "front": "#front0",
+          "south": "#south0",
+          "up": "#up0",
+          "down": "#down0"
+        }
+      },
+      "true": {
+        "textures": {
+          "sides": "#sides1",
+          "front": "#front1",
+          "south": "#south1",
+          "up": "#up1",
+          "down": "#down1"
+        }
+      }
     },
     "inventory": [
       {}

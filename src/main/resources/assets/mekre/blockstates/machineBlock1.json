@@ -1,9 +1,19 @@
 {
   "forge_marker": 1,
   "defaults": {
-    "model": "mekre:basic_cube",
+    "model": "mekre:machine",
     "textures": {
-      "all": "mekre:blocks/metalblocks/blockOsmium"
+      "sides0": "mekre:blocks/steelCasing",
+      "front0": "mekre:blocks/steelCasing",
+      "south0": "mekre:blocks/steelCasing",
+      "up0": "mekre:blocks/steelCasing",
+      "down0": "mekre:blocks/steelCasing",
+      "sides1": "#sides0",
+      "front1": "#front0",
+      "south1": "#south0",
+      "up1": "#up0",
+      "down1": "#down0",
+      "particle": "mekre:blocks/steelCasing"
     }
   },
   "variants": {
@@ -20,14 +30,53 @@
       }
     },
     "type": {
-      "invalid": {
-      },
+      "invalid": {},
       "chemical_crystallizer": {},
       "seismic_vibrator": {},
-      "pressurized_reaction_chamber": {},
-      "fluidic_plenisher": {},
-      "oredictionificator": {},
-      "formulaic_assemblicator": {}
+      "pressurized_reaction_chamber": {
+        "model": "mekre:pressurized_reaction_chamber"
+      },
+      "fluidic_plenisher": {
+        "model": "mekre:fluidic_plenisher"
+      },
+      "oredictionificator": {
+        "textures": {
+          "sides0": "mekre:blocks/oredictionificator/OredictionificatorRight",
+          "front0": "mekre:blocks/oredictionificator/OredictionificatorFront",
+          "south0": "mekre:blocks/oredictionificator/OredictionificatorBack",
+          "up0": "mekre:blocks/oredictionificator/OredictionificatorTop",
+          "down0": "mekre:blocks/oredictionificator/OredictionificatorBottom"
+        }
+      },
+      "formulaic_assemblicator": {
+        "textures": {
+          "sides0": "mekre:blocks/formulaic_assemblicator/FormulaicAssemblicatorRight",
+          "front0": "mekre:blocks/formulaic_assemblicator/FormulaicAssemblicatorFront",
+          "south0": "mekre:blocks/formulaic_assemblicator/FormulaicAssemblicatorBack",
+          "up0": "mekre:blocks/formulaic_assemblicator/FormulaicAssemblicatorTop",
+          "down0": "mekre:blocks/formulaic_assemblicator/FormulaicAssemblicatorBottom"
+        }
+      }
+    },
+    "active": {
+      "false": {
+        "textures": {
+          "sides": "#sides0",
+          "front": "#front0",
+          "south": "#south0",
+          "up": "#up0",
+          "down": "#down0"
+        }
+      },
+      "true": {
+        "textures": {
+          "sides": "#sides1",
+          "front": "#front1",
+          "south": "#south1",
+          "up": "#up1",
+          "down": "#down1"
+        }
+      }
     },
     "inventory": [
       {}

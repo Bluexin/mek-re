@@ -21,5 +21,4 @@ abstract class MBlock(name: String, material: Material, hardness: Float = 0.5F, 
     }
 
     override fun getMetaFromState(state: IBlockState) = 0
-
 }

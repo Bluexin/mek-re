@@ -1,7 +1,7 @@
 package be.bluexin.mekre.common.blocks
 
 import be.bluexin.mekre.Refs
-import be.bluexin.mekre.common.blocks.states.PropertyEnumWrapper
+import be.bluexin.mekre.common.blocks.states.IPropertyWrapper
 import net.minecraft.client.renderer.block.model.ModelResourceLocation
 import net.minecraft.item.Item
 import net.minecraftforge.client.model.ModelLoader
@@ -40,7 +40,7 @@ object MBlocks {
             var idx: Int = 0
             val s = it.properties.filter {
                 val prop = it.key
-                if (prop is PropertyEnumWrapper) {
+                if (prop is IPropertyWrapper) {
                     if (prop.isItemIdx) idx = (it.value as Enum<*>).ordinal
                     prop.renderDepends
                 } else false

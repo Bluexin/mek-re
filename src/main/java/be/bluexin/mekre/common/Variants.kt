@@ -39,27 +39,27 @@ enum class OreType(val harvestLevel: Int, val metal: MetalType) : IStringSeriali
     override fun toString() = name.toLowerCase()
 }
 
-enum class MachineType(val factorisable: Boolean = false) : IStringSerializable {
+enum class MachineType(val factorisable: Boolean = false, val opaque: Boolean = true) : IStringSerializable {
     INVALID(),
-    ENRICHMENT_CHAMBER(true),
+    ENRICHMENT_CHAMBER(factorisable = true),
     OSMIUM_COMPRESSOR(),
     COMBINER(),
-    CRUSHER(true),
-    METALLURGIC_INFUSER(true),
-    ENERGIZED_SMELTER(true),
-    PRECISION_SAWMILL(true),
+    CRUSHER(factorisable = true),
+    METALLURGIC_INFUSER(factorisable = true, opaque = false),
+    ENERGIZED_SMELTER(factorisable = true),
+    PRECISION_SAWMILL(factorisable = true),
     PURIFICATION_CHAMBER(),
-    ROTARY_CONDENSENTRATOR(),
-    CHEMICAL_OXIDIZER(),
-    CHEMICAL_INFUSER(),
+    ROTARY_CONDENSENTRATOR(opaque = false),
+    CHEMICAL_OXIDIZER(opaque = false),
+    CHEMICAL_INFUSER(opaque = false),
     CHEMICAL_INJ_CHAMBER(),
-    ELECTROLYTIC_SEPARATOR(),
+    ELECTROLYTIC_SEPARATOR(opaque = false),
     CHEMICAL_DISSOLUTION_CHAMBER(),
-    CHEMICAL_WASHER(),
+    CHEMICAL_WASHER(opaque = false),
     CHEMICAL_CRYSTALLIZER(),
     SEISMIC_VIBRATOR(),
-    PRESSURIZED_REACTION_CHAMBER(),
-    FLUIDIC_PLENISHER(),
+    PRESSURIZED_REACTION_CHAMBER(opaque = false),
+    FLUIDIC_PLENISHER(opaque = false),
     OREDICTIONIFICATOR(),
     FORMULAIC_ASSEMBLICATOR();
 
