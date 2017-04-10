@@ -1,4 +1,4 @@
-package be.bluexin.mekre.common.items
+package be.bluexin.mekre.items
 
 /**
  * Part of mek_re by Bluexin, released under GNU GPLv3.

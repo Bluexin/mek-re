@@ -1,7 +1,7 @@
-package be.bluexin.mekre.common.blocks
+package be.bluexin.mekre.blocks
 
-import be.bluexin.mekre.common.MetalType
-import be.bluexin.mekre.common.blocks.states.BSMetalBlock
+import be.bluexin.mekre.MetalType
+import be.bluexin.mekre.blocks.states.BSMetalBlock
 import net.minecraft.block.material.Material
 import net.minecraft.block.properties.PropertyEnum
 

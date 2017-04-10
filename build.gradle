@@ -38,12 +38,15 @@ repositories {
         url "http://dvs1.progwml6.com/files/maven"
     }
     maven {
-	    name 'Bluexin'
+        name 'Bluexin'
         url = "https://maven.bluexin.be/repository/releases/"
     }
     maven {
         'Darkhax'
         url 'http://maven.epoxide.xyz'
+    }
+    flatDir {
+        dirs 'libs'
     }
 }
 
@@ -75,15 +78,16 @@ dependencies {
     deobfCompile "mezz.jei:jei_${config.minecraft_version}:${config.jei_version}"
     compile "be.bluexin:saomc-lib:${config.minecraft_version}-${config.saomclib_version}:deobf"
     compile "net.darkhax.tesla:Tesla:${config.minecraft_version}-${config.tesla_version}"
+//    compile ":librarianlib-3.0"
 }
 
 processResources
-{
-    // copy everything else, thats not the mcmod.info
-    from(sourceSets.main.resources.srcDirs) {
-        exclude 'mcmod.info'
-    }
-}
+        {
+            // copy everything else, thats not the mcmod.info
+            from(sourceSets.main.resources.srcDirs) {
+                exclude 'mcmod.info'
+            }
+        }
 
 reobf {
     jar {

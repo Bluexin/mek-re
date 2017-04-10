@@ -1,4 +1,4 @@
-package be.bluexin.mekre.common
+package be.bluexin.mekre
 
 import net.minecraft.util.IStringSerializable
 
@@ -7,7 +7,7 @@ import net.minecraft.util.IStringSerializable
  *
  * @author Bluexin
  */
-enum class AlloyVariants {
+enum class AlloyTypes {
     ENRICHED,
     REINFORCED,
     ATOMIC;

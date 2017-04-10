@@ -1,11 +1,11 @@
 package be.bluexin.mekre.proxy
 
-import be.bluexin.mekre.common.blocks.MBlocks
-import be.bluexin.mekre.common.crafting.MCraftingRecipes
-import be.bluexin.mekre.common.crafting.MFurnaceRecipes
-import be.bluexin.mekre.common.crafting.MOreDict
-import be.bluexin.mekre.common.items.MItems
-import be.bluexin.mekre.common.world.GenerationHandler
+import be.bluexin.mekre.blocks.MBlocks
+import be.bluexin.mekre.crafting.MCraftingRecipes
+import be.bluexin.mekre.crafting.MFurnaceRecipes
+import be.bluexin.mekre.crafting.MOreDict
+import be.bluexin.mekre.items.MItems
+import be.bluexin.mekre.world.GenerationHandler
 import net.minecraftforge.fml.common.registry.GameRegistry
 
 /**

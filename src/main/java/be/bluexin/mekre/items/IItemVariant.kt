@@ -1,4 +1,4 @@
-package be.bluexin.mekre.common.items
+package be.bluexin.mekre.items
 
 import net.minecraft.item.ItemStack
 

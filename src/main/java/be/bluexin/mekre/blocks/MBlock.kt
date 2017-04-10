@@ -1,4 +1,4 @@
-package be.bluexin.mekre.common.blocks
+package be.bluexin.mekre.blocks
 
 import be.bluexin.mekre.Refs
 import net.minecraft.block.Block

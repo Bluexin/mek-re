@@ -1,7 +1,7 @@
-package be.bluexin.mekre.common.blocks
+package be.bluexin.mekre.blocks
 
-import be.bluexin.mekre.common.OreType
-import be.bluexin.mekre.common.blocks.states.BSOre
+import be.bluexin.mekre.OreType
+import be.bluexin.mekre.blocks.states.BSOre
 import net.minecraft.block.material.Material
 import net.minecraft.block.properties.PropertyEnum
 import net.minecraft.block.state.IBlockState

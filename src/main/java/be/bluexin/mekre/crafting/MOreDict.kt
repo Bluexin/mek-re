@@ -1,8 +1,10 @@
-package be.bluexin.mekre.common.crafting
+package be.bluexin.mekre.crafting
 
-import be.bluexin.mekre.common.MetalType
-import be.bluexin.mekre.common.items.crafting.Ingot
-import be.bluexin.mekre.common.items.itemblocks.MetalBlockItem
+import be.bluexin.mekre.AlloyTypes
+import be.bluexin.mekre.MetalType
+import be.bluexin.mekre.items.crafting.Alloy
+import be.bluexin.mekre.items.crafting.Ingot
+import be.bluexin.mekre.items.itemblocks.MetalBlockItem
 import net.minecraftforge.oredict.OreDictionary
 
 /**
@@ -10,7 +12,7 @@ import net.minecraftforge.oredict.OreDictionary
  *
  * @author Bluexin
  */
-object MOreDict {
+internal object MOreDict {
 
     private var initialized = false
 
@@ -21,6 +23,9 @@ object MOreDict {
         MetalType.values().forEach {
             OreDictionary.registerOre("ingot${it.name.capitalize()}", Ingot[it])
             if (it.hasBlockForm) OreDictionary.registerOre("block${it.name.capitalize()}", MetalBlockItem[it])
+        }
+        AlloyTypes.values().forEach {
+            OreDictionary.registerOre("alloy${it.name.capitalize()}", Alloy[it])
         }
     }
 

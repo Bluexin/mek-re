@@ -1,9 +1,9 @@
-package be.bluexin.mekre.common.items.itemblocks
+package be.bluexin.mekre.items.itemblocks
 
-import be.bluexin.mekre.common.MetalType
-import be.bluexin.mekre.common.blocks.MetalBlock
-import be.bluexin.mekre.common.blocks.states.BSMetalBlock
-import be.bluexin.mekre.common.items.IItemVariant
+import be.bluexin.mekre.MetalType
+import be.bluexin.mekre.blocks.MetalBlock
+import be.bluexin.mekre.blocks.states.BSMetalBlock
+import be.bluexin.mekre.items.IItemVariant
 import net.minecraft.block.state.IBlockState
 import net.minecraft.item.ItemStack
 

@@ -1,11 +1,11 @@
-package be.bluexin.mekre.common.blocks.states
+package be.bluexin.mekre.blocks.states
 
-import be.bluexin.mekre.common.MachineType
-import be.bluexin.mekre.common.MetalType
-import be.bluexin.mekre.common.OreType
-import be.bluexin.mekre.common.blocks.MachineBlock
-import be.bluexin.mekre.common.blocks.MetalBlock
-import be.bluexin.mekre.common.blocks.Ore
+import be.bluexin.mekre.MachineType
+import be.bluexin.mekre.MetalType
+import be.bluexin.mekre.OreType
+import be.bluexin.mekre.blocks.MachineBlock
+import be.bluexin.mekre.blocks.MetalBlock
+import be.bluexin.mekre.blocks.Ore
 import net.minecraft.block.BlockHorizontal
 import net.minecraft.block.properties.PropertyBool
 import net.minecraft.block.properties.PropertyEnum

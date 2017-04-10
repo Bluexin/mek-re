@@ -1,7 +1,7 @@
 package be.bluexin.mekre.proxy
 
-import be.bluexin.mekre.common.blocks.MBlocks
-import be.bluexin.mekre.common.items.MItems
+import be.bluexin.mekre.blocks.MBlocks
+import be.bluexin.mekre.items.MItems
 
 /**
  * Part of mek_re by Bluexin, released under GNU GPLv3.

@@ -1,11 +1,11 @@
-package be.bluexin.mekre.common.items
+package be.bluexin.mekre.items
 
 import be.bluexin.mekre.Refs
-import be.bluexin.mekre.common.items.crafting.Alloy
-import be.bluexin.mekre.common.items.crafting.Ingot
-import be.bluexin.mekre.common.items.itemblocks.MachineItemsHolder
-import be.bluexin.mekre.common.items.itemblocks.MetalBlockItem
-import be.bluexin.mekre.common.items.itemblocks.OreItem
+import be.bluexin.mekre.items.crafting.Alloy
+import be.bluexin.mekre.items.crafting.Ingot
+import be.bluexin.mekre.items.itemblocks.MachineItemsHolder
+import be.bluexin.mekre.items.itemblocks.MetalBlockItem
+import be.bluexin.mekre.items.itemblocks.OreItem
 import net.minecraft.client.renderer.block.model.ModelResourceLocation
 import net.minecraftforge.client.model.ModelLoader
 import net.minecraftforge.fml.common.registry.GameRegistry

@@ -1,8 +1,8 @@
-package be.bluexin.mekre.common.crafting
+package be.bluexin.mekre.crafting
 
-import be.bluexin.mekre.common.blocks.Ore
-import be.bluexin.mekre.common.items.crafting.Ingot
-import be.bluexin.mekre.common.items.itemblocks.OreItem
+import be.bluexin.mekre.blocks.Ore
+import be.bluexin.mekre.items.crafting.Ingot
+import be.bluexin.mekre.items.itemblocks.OreItem
 import net.minecraftforge.fml.common.registry.GameRegistry
 
 /**
@@ -10,7 +10,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry
  *
  * @author Bluexin
  */
-object MFurnaceRecipes {
+internal object MFurnaceRecipes {
 
     private var initialized = false
 

@@ -1,9 +1,9 @@
-package be.bluexin.mekre.common.items.itemblocks
+package be.bluexin.mekre.items.itemblocks
 
-import be.bluexin.mekre.common.MachineType
-import be.bluexin.mekre.common.blocks.MachineBlocksHolder
-import be.bluexin.mekre.common.items.IItemVariant
-import be.bluexin.mekre.common.items.IManyItemsHolder
+import be.bluexin.mekre.MachineType
+import be.bluexin.mekre.blocks.MachineBlocksHolder
+import be.bluexin.mekre.items.IItemVariant
+import be.bluexin.mekre.items.IManyItemsHolder
 import net.minecraft.block.state.IBlockState
 import net.minecraft.item.ItemStack
 

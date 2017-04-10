@@ -1,4 +1,4 @@
-package be.bluexin.mekre.common.blocks
+package be.bluexin.mekre.blocks
 
 import net.minecraft.block.material.Material
 import net.minecraft.block.properties.PropertyEnum

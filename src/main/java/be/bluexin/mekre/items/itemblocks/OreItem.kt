@@ -1,8 +1,8 @@
-package be.bluexin.mekre.common.items.itemblocks
+package be.bluexin.mekre.items.itemblocks
 
-import be.bluexin.mekre.common.OreType
-import be.bluexin.mekre.common.blocks.Ore
-import be.bluexin.mekre.common.items.IItemVariant
+import be.bluexin.mekre.OreType
+import be.bluexin.mekre.blocks.Ore
+import be.bluexin.mekre.items.IItemVariant
 import net.minecraft.block.state.IBlockState
 import net.minecraft.item.ItemStack
 

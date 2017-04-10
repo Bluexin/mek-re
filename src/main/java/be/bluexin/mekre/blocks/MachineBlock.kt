@@ -1,7 +1,7 @@
-package be.bluexin.mekre.common.blocks
+package be.bluexin.mekre.blocks
 
-import be.bluexin.mekre.common.MachineType
-import be.bluexin.mekre.common.blocks.states.BSMachine
+import be.bluexin.mekre.MachineType
+import be.bluexin.mekre.blocks.states.BSMachine
 import net.minecraft.block.Block
 import net.minecraft.block.material.Material
 import net.minecraft.block.properties.PropertyEnum

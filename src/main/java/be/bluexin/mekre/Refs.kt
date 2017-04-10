@@ -1,6 +1,6 @@
 package be.bluexin.mekre
 
-import be.bluexin.mekre.common.items.crafting.Alloy
+import be.bluexin.mekre.items.crafting.Alloy
 import net.minecraft.creativetab.CreativeTabs
 import net.minecraft.util.ResourceLocation
 import net.minecraftforge.fml.relauncher.Side

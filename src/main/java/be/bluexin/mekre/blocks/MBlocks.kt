@@ -1,7 +1,7 @@
-package be.bluexin.mekre.common.blocks
+package be.bluexin.mekre.blocks
 
 import be.bluexin.mekre.Refs
-import be.bluexin.mekre.common.blocks.states.IPropertyWrapper
+import be.bluexin.mekre.blocks.states.IPropertyWrapper
 import net.minecraft.client.renderer.block.model.ModelResourceLocation
 import net.minecraft.item.Item
 import net.minecraftforge.client.model.ModelLoader

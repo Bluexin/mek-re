@@ -1,8 +1,8 @@
-package be.bluexin.mekre.common.crafting
+package be.bluexin.mekre.crafting
 
-import be.bluexin.mekre.common.blocks.MetalBlock
-import be.bluexin.mekre.common.items.crafting.Ingot
-import be.bluexin.mekre.common.items.itemblocks.MetalBlockItem
+import be.bluexin.mekre.blocks.MetalBlock
+import be.bluexin.mekre.items.crafting.Ingot
+import be.bluexin.mekre.items.itemblocks.MetalBlockItem
 import net.minecraftforge.fml.common.registry.GameRegistry
 import net.minecraftforge.oredict.ShapelessOreRecipe
 
@@ -11,7 +11,7 @@ import net.minecraftforge.oredict.ShapelessOreRecipe
  *
  * @author Bluexin
  */
-object MCraftingRecipes {
+internal object MCraftingRecipes {
 
     private var initialized = false
 

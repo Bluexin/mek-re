@@ -1,17 +1,11 @@
-package be.bluexin.mekre.common.items.itemblocks
+package be.bluexin.mekre.items
 
-import be.bluexin.mekre.common.blocks.MBlock
-import be.bluexin.mekre.common.items.IItemVariant
-import net.minecraft.block.state.IBlockState
+import be.bluexin.mekre.Refs
 import net.minecraft.client.resources.I18n
 import net.minecraft.creativetab.CreativeTabs
 import net.minecraft.entity.player.EntityPlayer
 import net.minecraft.item.Item
-import net.minecraft.item.ItemBlock
 import net.minecraft.item.ItemStack
-import net.minecraft.util.EnumFacing
-import net.minecraft.util.math.BlockPos
-import net.minecraft.world.World
 import net.minecraftforge.fml.relauncher.Side
 import net.minecraftforge.fml.relauncher.SideOnly
 
@@ -20,11 +14,12 @@ import net.minecraftforge.fml.relauncher.SideOnly
  *
  * @author Bluexin
  */
-abstract class MItemBlock(block: MBlock) : ItemBlock(block) {
+abstract class MItem(name: String) : Item() {
 
     init {
-        this.registryName = block.registryName
-        this.unlocalizedName = block.unlocalizedName
+        this.registryName = Refs.getResourceLocation(name)
+        this.unlocalizedName = this.registryName.toString().replace(':', '.')
+        this.creativeTab = Refs.CTAB_MEKRE
         this.maxDamage = 0
         @Suppress("LeakingThis")
         this.hasSubtypes = this is IItemVariant<*>
@@ -57,9 +52,4 @@ abstract class MItemBlock(block: MBlock) : ItemBlock(block) {
             else "${s}_${this.variantsAll[i]}"
         } else return super.getUnlocalizedName(stack)
     }
-
-    open fun applyToState(stack: ItemStack, state: IBlockState) = state // A shame this can't be handled with java generics
-
-    override fun placeBlockAt(stack: ItemStack, player: EntityPlayer, world: World, pos: BlockPos, side: EnumFacing, hitX: Float, hitY: Float, hitZ: Float, newState: IBlockState)
-            = super.placeBlockAt(stack, player, world, pos, side, hitX, hitY, hitZ, this.applyToState(stack, newState))
 }

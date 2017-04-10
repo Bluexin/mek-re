@@ -1,7 +1,7 @@
-package be.bluexin.mekre.common.world
+package be.bluexin.mekre.world
 
-import be.bluexin.mekre.common.OreType
-import be.bluexin.mekre.common.blocks.Ore
+import be.bluexin.mekre.OreType
+import be.bluexin.mekre.blocks.Ore
 import net.minecraft.block.state.pattern.BlockMatcher
 import net.minecraft.init.Blocks
 import net.minecraft.util.math.BlockPos
