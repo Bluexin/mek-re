@@ -17,7 +17,7 @@ object MekRe {
     const val MODID = "mekre"
     const val MODNAME = "Mek:Re"
     const val VERSION = "0.1"
-    const val DEPS = "required-after:saomclib@[1.0.5b,);required-after:tesla@[1.2.1.50,)"
+    const val DEPS = "required-after:saomclib@[1.1,)"
 
     @SidedProxy(clientSide = "be.bluexin.mekre.proxy.ClientProxy", serverSide = "be.bluexin.mekre.proxy.CommonProxy")
     internal lateinit var proxy: CommonProxy

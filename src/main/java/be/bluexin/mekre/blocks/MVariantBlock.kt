@@ -6,7 +6,9 @@ import net.minecraft.block.state.IBlockState
 import net.minecraft.creativetab.CreativeTabs
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
+import net.minecraft.tileentity.TileEntity
 import net.minecraft.util.IStringSerializable
+import net.minecraft.world.World
 
 /**
  * Part of mek_re by Bluexin, released under GNU GPLv3.
@@ -33,4 +35,12 @@ abstract class MVariantBlock<T>(name: String, material: Material, hardness: Floa
     override fun getMetaFromState(state: IBlockState) = state.getValue(typeProperty).ordinal % 16
 
     override fun getStateFromMeta(meta: Int) = this[variantsAll[meta]]
+}
+
+abstract class MVariantBlockContainer<T>(name: String, material: Material, hardness: Float, resistance: Float) : MVariantBlock<T>(name, material, hardness, resistance) where T : Enum<T>, T : IStringSerializable {
+
+    abstract override fun hasTileEntity(state: IBlockState): Boolean
+
+    abstract override fun createTileEntity(world: World, state: IBlockState): TileEntity
+
 }

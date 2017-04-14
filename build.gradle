@@ -14,10 +14,14 @@ buildscript {
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlin_version}"
     }
 }
 
 apply plugin: 'idea'
+apply plugin: "maven"
+apply plugin: 'kotlin'
+apply plugin: 'net.minecraftforge.gradle.forge'
 
 idea {
     module {
@@ -26,27 +30,29 @@ idea {
     }
 }
 
-apply plugin: 'net.minecraftforge.gradle.forge'
-
 repositories {
     maven {
-        name 'ForgeFS'
-        url 'http://files.minecraftforge.net/maven'
+        name 'Bluexin'
+        url = "https://maven.bluexin.be/repository/releases/"
+    }
+    /*maven {
+        name 'Darkhax'
+        url 'http://maven.epoxide.xyz'
+    }*/
+    maven {
+        url "file://${new File("mvn").absolutePath}"
+    }
+    maven {
+        name 'Shadowfacts'
+        url "http://mvn.rx14.co.uk/shadowfacts/"
     }
     maven {
         name 'prog'
         url "http://dvs1.progwml6.com/files/maven"
     }
     maven {
-        name 'Bluexin'
-        url = "https://maven.bluexin.be/repository/releases/"
-    }
-    maven {
-        'Darkhax'
-        url 'http://maven.epoxide.xyz'
-    }
-    flatDir {
-        dirs 'libs'
+        name 'ForgeFS'
+        url 'http://files.minecraftforge.net/maven'
     }
 }
 
@@ -77,22 +83,21 @@ minecraft {
 dependencies {
     deobfCompile "mezz.jei:jei_${config.minecraft_version}:${config.jei_version}"
     compile "be.bluexin:saomc-lib:${config.minecraft_version}-${config.saomclib_version}:deobf"
-    compile "net.darkhax.tesla:Tesla:${config.minecraft_version}-${config.tesla_version}"
-//    compile ":librarianlib-3.0"
+//    compile "net.darkhax.tesla:Tesla:${config.minecraft_version}-${config.tesla_version}"
+    compile "com.teamwizardry.librarianlib:librarianlib:1.10.2:deobf"
 }
 
-processResources
-        {
-            // copy everything else, thats not the mcmod.info
-            from(sourceSets.main.resources.srcDirs) {
-                exclude 'mcmod.info'
-            }
-        }
+processResources {
+    // copy everything else, thats not the mcmod.info
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
+}
 
-reobf {
-    jar {
-        extraLines += ["PK: kotlin be/bluexin/saomclib/shade/kotlin"]
-        extraLines += ["PK: org/jetbrains/annotations be/bluexin/saomclib/shade/annotations"]
+compileKotlin {
+    kotlinOptions {
+        javaParameters = true
+        jvmTarget = 1.8
     }
 }
 

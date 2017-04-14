@@ -1,5 +1,7 @@
 package be.bluexin.mekre
 
+import be.bluexin.mekre.tiles.SmelterTE
+import net.minecraft.tileentity.TileEntity
 import net.minecraft.util.IStringSerializable
 
 /**
@@ -39,14 +41,14 @@ enum class OreType(val harvestLevel: Int, val metal: MetalType) : IStringSeriali
     override fun toString() = name.toLowerCase()
 }
 
-enum class MachineType(val factorisable: Boolean = false, val opaque: Boolean = true) : IStringSerializable {
+enum class MachineType(val te: (() -> TileEntity)? = null, val factorisable: Boolean = false, val opaque: Boolean = true) : IStringSerializable {
     INVALID(),
     ENRICHMENT_CHAMBER(factorisable = true),
     OSMIUM_COMPRESSOR(),
     COMBINER(),
     CRUSHER(factorisable = true),
     METALLURGIC_INFUSER(factorisable = true, opaque = false),
-    ENERGIZED_SMELTER(factorisable = true),
+    ENERGIZED_SMELTER(::SmelterTE, factorisable = true),
     PRECISION_SAWMILL(factorisable = true),
     PURIFICATION_CHAMBER(),
     ROTARY_CONDENSENTRATOR(opaque = false),

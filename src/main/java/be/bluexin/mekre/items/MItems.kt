@@ -29,6 +29,7 @@ object MItems {
         GameRegistry.register(OreItem)
         GameRegistry.register(MetalBlockItem)
         MachineItemsHolder.items.forEach { GameRegistry.register(it) }
+        GameRegistry.register(ItemDebug)
     }
 
     @SideOnly(Side.CLIENT)

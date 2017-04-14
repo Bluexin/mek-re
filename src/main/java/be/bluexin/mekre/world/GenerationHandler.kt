@@ -28,19 +28,22 @@ object GenerationHandler : IWorldGenerator {
 
     override fun generate(random: Random, chunkX: Int, chunkZ: Int, world: World, chunkGenerator: IChunkGenerator, chunkProvider: IChunkProvider) {
         if (chunkGenerator !is ChunkProviderHell && chunkGenerator !is ChunkProviderEnd) {
+            var gen = WorldGenMinable(Ore[OreType.OSMIUM], 8, BlockMatcher.forBlock(Blocks.STONE))
             (1..osmium).forEach {
                 val pos = BlockPos(chunkX * 16 + random.nextInt(16), random.nextInt(60), chunkZ * 16 + random.nextInt(16))
-                WorldGenMinable(Ore[OreType.OSMIUM], 8, BlockMatcher.forBlock(Blocks.STONE)).generate(world, random, pos)
+                gen.generate(world, random, pos)
             }
 
+            gen = WorldGenMinable(Ore[OreType.COPPER], 8, BlockMatcher.forBlock(Blocks.STONE))
             (1..copper).forEach {
                 val pos = BlockPos(chunkX * 16 + random.nextInt(16), random.nextInt(60), chunkZ * 16 + random.nextInt(16))
-                WorldGenMinable(Ore[OreType.COPPER], 8, BlockMatcher.forBlock(Blocks.STONE)).generate(world, random, pos)
+                gen.generate(world, random, pos)
             }
 
+            gen = WorldGenMinable(Ore[OreType.TIN], 8, BlockMatcher.forBlock(Blocks.STONE))
             (1..tin).forEach {
                 val pos = BlockPos(chunkX * 16 + random.nextInt(16), random.nextInt(60), chunkZ * 16 + random.nextInt(16))
-                WorldGenMinable(Ore[OreType.TIN], 8, BlockMatcher.forBlock(Blocks.STONE)).generate(world, random, pos)
+                gen.generate(world, random, pos)
             }
 
             /*(1..salt).forEach {

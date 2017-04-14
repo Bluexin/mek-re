@@ -1,0 +1,20 @@
+{
+  "spritesheet": {
+    "textureWidth": 256,
+    "textureHeight": 256,
+    "sprites": {
+      "regular_bg": [
+        0,
+        1,
+        6,
+        54
+      ],
+      "regular_fg": [
+        8,
+        2,
+        4,
+        52
+      ]
+    }
+  }
+}
